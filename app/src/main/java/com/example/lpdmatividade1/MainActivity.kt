@@ -1,6 +1,5 @@
 package com.example.lpdmatividade1
 
-import android.R.attr.background
 import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
@@ -19,7 +18,6 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.painterResource
-import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.example.lpdmatividade1.ui.theme.LPDMAtividade1Theme
@@ -48,7 +46,7 @@ fun Greeting(modifier: Modifier = Modifier) {
             painter = image,
             contentDescription = null
         )
-        Box(modifier) {
+        Box() {
             Image(
                 painter = painterResource(R.drawable.fundo),
                 contentDescription = null
@@ -74,15 +72,15 @@ fun Greeting(modifier: Modifier = Modifier) {
             text = "Amo fazer apps para celular, mas meu pc está pedindo arrego",
             fontSize = 20.sp
         )
-        CriarRegistro(R.drawable.telefone, "Celular Pessoal: +55 (35) 99999-9999", modifier)
-        CriarRegistro(R.drawable.telefone, "Celular Comercial: +55 (35) 99959-5465", modifier)
-        CriarRegistro(R.drawable.email, "Email Comercial: keslleyjrdevelop@gmail.com", modifier)
+        CriarRegistro(R.drawable.telefone, "Celular Pessoal: +55 (35) 99999-9999")
+        CriarRegistro(R.drawable.telefone, "Celular Comercial: +55 (35) 99959-5465")
+        CriarRegistro(R.drawable.email, "Email Comercial: keslleyjrdevelop@gmail.com")
     }
 }
 
 @Composable
 fun CriarRegistro(icone: Int, texto: String, modifier: Modifier = Modifier) {
-    Row(modifier) {
+    Row(modifier=modifier) {
         Image(
             painter = painterResource(icone),
             contentDescription = null
