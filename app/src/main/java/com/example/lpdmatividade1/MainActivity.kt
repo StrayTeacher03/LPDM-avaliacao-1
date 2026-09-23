@@ -1,10 +1,12 @@
 package com.example.lpdmatividade1
 
+import android.R.attr.background
 import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.activity.enableEdgeToEdge
 import androidx.compose.foundation.Image
+import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
@@ -15,8 +17,10 @@ import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.tooling.preview.Preview
+import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.example.lpdmatividade1.ui.theme.LPDMAtividade1Theme
 
@@ -39,7 +43,7 @@ class MainActivity : ComponentActivity() {
 @Composable
 fun Greeting(modifier: Modifier = Modifier) {
     val image = painterResource(R.drawable.logo)
-    Column(modifier = modifier, horizontalAlignment = Alignment.CenterHorizontally) {
+    Column(modifier = modifier.background(Color(0xFFE0F7FA)).padding(horizontal = 5.dp), horizontalAlignment = Alignment.CenterHorizontally) {
         Image(
             painter = image,
             contentDescription = null
@@ -56,11 +60,11 @@ fun Greeting(modifier: Modifier = Modifier) {
         }
         Text(
             text = "Keslley Antonio de Almeida Dornelas Junior",
-            fontSize = 40.sp
+            fontSize = 30.sp
         )
         Text(
             text = "Desenvolvedor Mobile",
-            fontSize = 30.sp
+            fontSize = 25.sp
         )
         Text(
             text = "Sobre:",
@@ -70,37 +74,23 @@ fun Greeting(modifier: Modifier = Modifier) {
             text = "Amo fazer apps para celular, mas meu pc está pedindo arrego",
             fontSize = 20.sp
         )
-        Row(modifier) {
-            Image(
-                painter = painterResource(R.drawable.telefone),
-                contentDescription = null
-            )
-            Text(
-                text = "Celular Pessoal: +55 (35) 99999-9999",
-                fontSize = 20.sp
-            )
-        }
-        Row(modifier) {
-            Image(
-                painter = painterResource(R.drawable.telefone),
-                contentDescription = null
-            )
-            Text(
-                text = "Celular Comercial: +55 (35) 99959-5465",
-                fontSize = 20.sp
-            )
-        }
-        Row(modifier) {
-            Image(
-                painter = painterResource(R.drawable.email),
-                contentDescription = null
-            )
-            Text(
-                text = "Email Comercial: keslleyjrdevelop@gmail.com",
-                fontSize = 20.sp
-            )
-        }
+        CriarRegistro(R.drawable.telefone, "Celular Pessoal: +55 (35) 99999-9999", modifier)
+        CriarRegistro(R.drawable.telefone, "Celular Comercial: +55 (35) 99959-5465", modifier)
+        CriarRegistro(R.drawable.email, "Email Comercial: keslleyjrdevelop@gmail.com", modifier)
     }
 }
 
+@Composable
+fun CriarRegistro(icone: Int, texto: String, modifier: Modifier = Modifier) {
+    Row(modifier) {
+        Image(
+            painter = painterResource(icone),
+            contentDescription = null
+        )
+        Text(
+            text = texto,
+            fontSize = 20.sp
+        )
+    }
+}
 
